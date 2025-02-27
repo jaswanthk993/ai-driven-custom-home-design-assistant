@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Home Design Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏠 AI Home Design Generator</h1>
+            <p>Create customized floor plans using AI</p>
+        </header>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <h2>Design Preferences</h2>
+                <form id="designForm">
+                    <div class="form-group">
+                        <label for="bedrooms">Number of Bedrooms</label>
+                        <input type="range" id="bedrooms" min="1" max="5" value="2">
+                        <span id="bedroomsValue">2</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bathrooms">Number of Bathrooms</label>
+                        <input type="range" id="bathrooms" min="1" max="4" value="2">
+                        <span id="bathroomsValue">2</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="additionalRooms">Additional Rooms</label>
+                        <input type="range" id="additionalRooms" min="0" max="4" value="1">
+                        <span id="additionalRoomsValue">1</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="houseSize">House Size (sq ft)</label>
+                        <input type="range" id="houseSize" min="800" max="4000" step="100" value="2000">
+                        <span id="houseSizeValue">2000</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="style">Architectural Style</label>
+                        <select id="style">
+                            <option value="Modern">Modern</option>
+                            <option value="Traditional">Traditional</option>
+                            <option value="Contemporary">Contemporary</option>
+                            <option value="Mediterranean">Mediterranean</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Special Requirements</label>
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" value="Open Floor Plan" checked> Open Floor Plan
+                            </label>
+                            <label>
+                                <input type="checkbox" value="Home Office"> Home Office
+                            </label>
+                            <label>
+                                <input type="checkbox" value="Large Kitchen"> Large Kitchen
+                            </label>
+                            <label>
+                                <input type="checkbox" value="Master Suite"> Master Suite
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="generateBtn">Generate Design</button>
+                </form>
+            </div>
+
+            <div class="content">
+                <div id="floorPlan"></div>
+                <div id="designDetails" class="design-details"></div>
+                <div id="exportButtons" class="export-buttons" style="display: none;">
+                    <button id="downloadJSON">📥 Download Design Summary (JSON)</button>
+                    <button id="downloadCSV">📊 Download Room Data (CSV)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
