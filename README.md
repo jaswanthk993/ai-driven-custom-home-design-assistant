@@ -118,7 +118,4 @@ print(response)
 🔗 GitHub: [jaswanthk993](https://github.com/jaswanthk993)  
 🔗 LinkedIn: [Jaswanth Kumar](https://www.linkedin.com/in/jaswanth-kumar-)  
 
----
-License
-MIT License
 
